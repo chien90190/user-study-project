@@ -341,8 +341,7 @@ function renderObjects(now) {
                 <div style="margin-top: 20px; text-align: left; max-width: 800px; margin-left: auto; margin-right: auto;">
                     <h3>What you'll be evaluating:</h3>
                     <ul>
-                        <li><strong>Artifacts:</strong> Look for ghosting or double contour effects around objects</li>
-                        <li><strong>Fine Details:</strong> Notice how well facial features, hair strands, and texture edges are preserved</li>
+                        <li><strong>Artifacts:</strong> Look for ghosting or double contour effects around humans</li>
                         <li><strong>Frozen Time Effect:</strong> Evaluate how convincing and appealing the video is</li>
                     </ul>
                     
