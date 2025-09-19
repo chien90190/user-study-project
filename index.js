@@ -481,13 +481,14 @@ function renderQuestions() {
     let isStillness = data_list[videoDataIndex].type === "stillness";
     
     console.log("renderQuestions - now:", now, "videoDataIndex:", videoDataIndex, "isStillness:", isStillness);
-    
     if (isStillness) {
         // Render comparison question (similar to regular comparison questions)
         let txt = `<div style="margin: 0; padding: 0;">
             <div style="margin-bottom: 15px;">
                 <p style="margin: 0 0 5px 0; font-weight: bold;">${stillness_question}</p>
                 <div style="display: flex; align-items: center; flex-wrap: wrap;">`;
+            
+        const options = shuffle([1, 2]);
 
         // Two options: Video 1 and Video 2
         for(let v = 1; v <= 2; v++){
@@ -514,6 +515,8 @@ function renderQuestions() {
                 <p style="margin: 0 0 5px 0; font-weight: bold;">Q${q}. ${questions[q-1]}</p>
                 <div style="display: flex; align-items: center; flex-wrap: wrap;">`;
 
+            const options = shuffle(Array.from({length: num_of_selection}, (_, i) => i + 1));
+
             for(let v = 1; v <= num_of_selection; v++){
                 txt +=`
                     <div style="margin-right: 15px; display: flex; align-items: center;">
@@ -533,3 +536,22 @@ function renderQuestions() {
         document.getElementById("questions").innerHTML = txt;
     }
 }
+
+function shuffle(array) {
+  let currentIndex = array.length,  randomIndex;
+
+  // While there remain elements to shuffle.
+  while (currentIndex != 0) {
+
+    // Pick a remaining element.
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex--;
+
+    // And swap it with the current element.
+    [array[currentIndex], array[randomIndex]] = [
+      array[randomIndex], array[currentIndex]];
+  }
+
+  return array;
+}
+
